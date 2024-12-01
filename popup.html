@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Review Scraper</title>
+  <style>
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      width: 1000px;
+      gap: 10px;
+      max-height: 200px; /* Adjust max-height as needed */
+      overflow-y: auto; /* Enable vertical scrolling */
+    }
+
+    .review-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .thumb-image {
+      width: 24px; /* Adjust width as needed */
+      height: 24px; /* Adjust height as needed */
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <button id="scrapeButton">Scrape Reviews</button>
+  <div id="reviewContainer" class="review-grid"></div>
+ 
+  <script src="popup.js"></script>
+</body>
+
+</html>
