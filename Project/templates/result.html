@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Result</title>
+</head>
+<body>
+    <h1>Sentiment Analysis Result</h1>
+
+    <h2>Sentences:</h2>
+    {% for sentence in analyzed_sentences %}
+    <div>
+        <p><strong>Sentence:</strong> {{ sentence.sentence_text }}</p>
+        <p><strong>Sentiment:</strong> {{ sentence.sentiment }}</p>
+        <p><strong>Confidence:</strong> {{ sentence.confidence }}</p>
+        
+        {% if sentence.opinion_data %}
+        <h3>Opinion Mining Data:</h3>
+        <ul>
+            {% for opinion in sentence.opinion_data %}
+            <li>
+                <p><strong>Target:</strong> {{ opinion.target.text }}</p>
+                <p><strong>Sentiment:</strong> {{ opinion.target.sentiment }}</p>
+                <p><strong>Confidence:</strong>  {{ opinion.confidence|max_value }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    {% endfor %}
+</body>
+</html>
